@@ -1,0 +1,336 @@
+/* Modal Overlay */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+/* Modal Container */
+.modal-container {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 450px;
+    width: 90%;
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: var(--text-main);
+}
+
+/* Modal Header */
+.modal-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.modal-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 215, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    border: 2px solid var(--primary-yellow);
+}
+
+.modal-icon i {
+    color: var(--primary-yellow);
+    font-size: 24px;
+}
+
+.modal-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+.modal-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-main);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus {
+    border-color: var(--primary-yellow);
+}
+
+.form-input::placeholder {
+    color: var(--text-muted);
+}
+
+.phone-input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.country-code {
+    width: 100px;
+    padding: 12px;
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-main);
+    font-size: 14px;
+    outline: none;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: var(--primary-yellow);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: var(--hover-yellow);
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -450px;
+    width: 450px;
+    height: 100%;
+    background: var(--bg-card);
+    z-index: 2001;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    border-left: 1px solid var(--border-color);
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.sidebar-close {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.sidebar-close:hover {
+    color: var(--text-main);
+}
+
+.sidebar-content {
+    padding: 25px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.empty-icon {
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 215, 0, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    border: 2px dashed var(--border-color);
+}
+
+.empty-icon i {
+    font-size: 50px;
+    color: var(--text-muted);
+}
+
+.empty-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 10px;
+}
+
+.empty-text {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.btn-secondary {
+    padding: 12px 30px;
+    background: var(--primary-yellow);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+    background: var(--hover-yellow);
+}
+
+/* Admin Dashboard */
+.admin-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--border-color);
+    padding: 0 25px;
+}
+
+.admin-tab {
+    padding: 15px 20px;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s;
+}
+
+.admin-tab.active {
+    color: var(--primary-yellow);
+    border-bottom-color: var(--primary-yellow);
+}
+
+.admin-tab:hover {
+    color: var(--text-main);
+}
+
+.admin-content {
+    padding: 25px;
+}
+
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-table th {
+    text-align: left;
+    padding: 12px;
+    font-size: 12px;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.product-table td {
+    padding: 15px 12px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-main);
+}
+
+.add-product-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--primary-yellow);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+/* Response for Modals and Sidebars */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        right: -100%;
+    }
+
+    .modal-container {
+        padding: 30px 15px;
+        width: 95%;
+    }
+
+    .empty-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .empty-icon i {
+        font-size: 32px;
+    }
+}

@@ -1,0 +1,74 @@
+{% extends 'market/admin_base.html' %}
+{% load static %}
+
+{% block admin_content %}
+
+<div class="admin-form-container">
+    <div class="form-header">
+        <h1 class="form-title">Mahsulotni tahrirlash</h1>
+        <p class="form-subtitle">Kerakli maydonlarni o'zgartiring</p>
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label">Mahsulot nomi *</label>
+                <input type="text" name="name" class="form-input" value="{{ product.name }}" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Kategoriya *</label>
+                <select name="category" class="form-input" required>
+                    {% for category in categories %}
+                    <option value="{{ category.id }}" {% if category.id==product.category.id %}selected{% endif %}>
+                        {{ category.name }}
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row full">
+            <div class="form-group">
+                <label class="form-label">Tavsif *</label>
+                <textarea name="description" class="form-input" rows="4" required>{{ product.description }}</textarea>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label">Narxi *</label>
+                <input type="number" name="price" class="form-input" value="{{ product.price }}" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Eski narxi</label>
+                <input type="number" name="old_price" class="form-input" value="{{ product.old_price|default:'' }}"
+                    step="0.01">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label">Ombordagi soni *</label>
+                <input type="number" name="stock" class="form-input" value="{{ product.stock }}" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Yangi rasm</label>
+                {% if product.image %}
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="current-image">
+                {% endif %}
+                <input type="file" name="image" class="form-input" accept="image/*">
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <a href="{% url 'market:admin_dashboard' %}" class="btn-cancel">Bekor qilish</a>
+            <button type="submit" class="btn-submit">Saqlash</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

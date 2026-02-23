@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="product-detail">
+    <div class="product-detail-image">
+        {% if product.image %}
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        {% else %}
+        <img src="https://via.placeholder.com/500x650" alt="{{ product.name }}">
+        {% endif %}
+    </div>
+
+    <div class="product-detail-info">
+        <nav style="font-size: 14px; color: var(--uzum-gray); margin-bottom: 20px;">
+            <a href="{% url 'market:home' %}">Bosh sahifa</a> /
+            <a href="{% url 'market:home' %}?category={{ product.category.id }}">{{ product.category.name }}</a>
+        </nav>
+
+        <h1 style="font-size: 28px; font-weight: 700; margin-bottom: 15px; color: var(--text-main);">{{ product.name }}
+        </h1>
+
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px; font-size: 14px;">
+            <span style="display: flex; align-items: center; gap: 5px;">
+                <i class="fas fa-star" style="color: var(--primary-yellow);"></i> {{ product.rating }}
+            </span>
+            <span style="color: var(--uzum-gray);">{{ product.reviews_count }} sharh</span>
+        </div>
+
+        <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 25px;">
+
+        <div style="margin-bottom: 30px;">
+            <p style="font-size: 14px; color: var(--uzum-gray); margin-bottom: 5px;">Narx:</p>
+            <div style="display: flex; align-items: baseline; gap: 15px;">
+                <span style="font-size: 24px; font-weight: 800; color: var(--primary-yellow);">{{ product.price }}
+                    so'm</span>
+                {% if product.old_price %}
+                <span style="font-size: 16px; color: var(--uzum-gray); text-decoration: line-through;">{{
+                    product.old_price }} so'm</span>
+                {% endif %}
+            </div>
+        </div>
+
+        <div style="margin-bottom: 30px;">
+            <a href="javascript:void(0)" onclick="addToCart('{{ product.id }}')" class="btn-yellow-main"
+                style="display: block; width: 100%; padding: 15px; font-size: 16px;">
+                Savatga qo'shish
+            </a>
+        </div>
+
+        <div
+            style="background: rgba(255, 215, 0, 0.1); padding: 20px; border-radius: 12px; margin-bottom: 30px; border: 1px solid rgba(255, 215, 0, 0.2);">
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <i class="fas fa-truck" style="color: var(--primary-yellow); font-size: 20px;"></i>
+                <div>
+                    <p style="font-weight: 700; font-size: 14px; color: white;">Yetkazib berish: 1 kun ichida</p>
+                    <p style="font-size: 12px; color: var(--uzum-gray);">NextMarket topshirish punktlariga bepul</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="description">
+            <h3 style="font-size: 18px; font-weight: 700; margin-bottom: 15px; color: white;">Mahsulot tavsifi</h3>
+            <p style="line-height: 1.6; color: var(--text-dim);">
+                {{ product.description|linebreaks }}
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}
