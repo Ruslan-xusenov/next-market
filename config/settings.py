@@ -307,4 +307,4 @@ if not DEBUG:
     X_FRAME_OPTIONS = 'DENY'
     
     # Trusted Origins (Add your domain here when deploying)
-    # CSRF_TRUSTED_ORIGINS = ['https://yourdomain.com']
+    CSRF_TRUSTED_ORIGINS = ['https://ruslandev.uz']
