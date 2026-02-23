@@ -50,3 +50,5 @@ urllib3
 uvicorn
 whitenoise
 zope.interface
+django-redis
+channels-redis

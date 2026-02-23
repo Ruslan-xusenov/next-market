@@ -17,7 +17,14 @@ git pull origin main
 
 # 3. Virtual muhitni yoqish va kutubxonalarni o'rnatish
 echo -e "${GREEN}📦 Kutubxonalar sinxronizatsiya qilinmoqda...${NC}"
-source venv_linux/bin/activate
+if [ -d "venv_linux" ]; then
+    source venv_linux/bin/activate
+elif [ -d "venv" ]; then
+    source venv/bin/activate
+else
+    echo "Virtual muhit (venv yoki venv_linux) topilmadi!"
+    exit 1
+fi
 pip install -r requirements.txt
 
 # 4. Ma'lumotlar bazasini yangilash
