@@ -11,15 +11,14 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
-import os
+# Load environment variables from .env file
+load_dotenv(BASE_DIR / '.env')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-fb1f+c9wxq-ldf0vy6sym+dw0v+t5naxxgpeeco#d^a7)-@5wz')
@@ -307,4 +306,7 @@ if not DEBUG:
     X_FRAME_OPTIONS = 'DENY'
     
     # Trusted Origins (Add your domain here when deploying)
-    CSRF_TRUSTED_ORIGINS = ['https://ruslandev.uz']
+    CSRF_TRUSTED_ORIGINS = [
+        'https://ruslandev.uz',
+        'https://www.ruslandev.uz',
+    ]
