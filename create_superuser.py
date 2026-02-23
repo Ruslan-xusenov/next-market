@@ -1,11 +1,9 @@
 from django.contrib.auth.models import User
 
-# Delete existing admin if exists
 if User.objects.filter(username='admin').exists():
     User.objects.filter(username='admin').delete()
     print("Deleted existing admin user")
 
-# Create new superuser
 user = User.objects.create_superuser(
     username='admin',
     email='admin@uzummarket.uz',
