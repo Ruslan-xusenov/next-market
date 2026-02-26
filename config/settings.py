@@ -310,3 +310,5 @@ if not DEBUG:
         'https://ruslandev.uz',
         'https://www.ruslandev.uz',
     ]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
